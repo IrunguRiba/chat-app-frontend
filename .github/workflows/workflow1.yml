@@ -1,4 +1,4 @@
-Name: Chat-app-frontend
+name: Chat-app-frontend
 on:
   push:
     branches:
@@ -27,5 +27,5 @@ jobs:
         working-directory: ./frontend
 
       - name: Build project
-        run: ng run build
+        run: npm run build
         working-directory: ./frontend
