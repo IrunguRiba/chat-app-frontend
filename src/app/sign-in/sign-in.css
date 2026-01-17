@@ -1,0 +1,412 @@
+
+main{
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    background-color: #2c2502;
+    color: #EFF2E6;
+    position: relative;
+  z-index: 1;
+    
+}
+#divide {
+    border: none;                     
+    height: 80%;                  
+    width: 0.05%;                       
+    background: linear-gradient(to bottom, #666966, #2c2502); 
+}
+
+
+.sign-in-container{
+   width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.checkbox-wrapper-39 *,
+.checkbox-wrapper-39 *::before,
+.checkbox-wrapper-39 *::after {
+  box-sizing: border-box;
+}
+
+.checkbox-wrapper-39 label {
+  display: block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.checkbox-wrapper-39 input {
+  visibility: hidden;
+  display: none;
+}
+
+.checkbox-wrapper-39 input:checked ~ .checkbox {
+ transform: rotate(45deg);
+ width: 14px;
+ margin-left: 12px;
+ border-color: #24c78e;
+ border-top-color: transparent;
+ border-left-color: transparent;
+ border-radius: 0;
+}
+.welcome-container h1{
+    font-size: clamp(24px, 2.2vw, 40px);
+   color: #beb588;
+   letter-spacing: .65em;
+}
+.welcome-container p{
+    font-size: clamp(14px, 1.2vw, 18px);
+    letter-spacing: .3em;
+    color: #dfdab9;
+    font-weight: 500;
+    font-style:var(--color);
+    font-weight: bolder;
+}
+.checkbox-wrapper-39 .checkbox {
+    
+  display: block;
+  width: inherit;
+  height: inherit;
+  border: 3px solid #434343;
+  border-radius: 6px;
+  transition: all 0.375s;
+}
+#icon {
+    width: clamp(22px, 1vw, 28px);
+    height: auto;
+  }
+#logo-image{
+    width:  110%;
+    max-height: 100vh;
+    object-fit: contain;
+}  
+.social-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(15px, 2vw, 25px);
+    margin-top: clamp(15px, 2vw, 25px);
+}
+.social-icons i{
+    font-size: clamp(14px, 1.5vw, 20px);
+    gap: clamp(10px, 1vw, 15px);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ 
+.auth-container p{
+    font-size: clamp(12px, 1vw, 16px);
+    
+}
+#logo-image{
+    width: 95%;
+    height: 100vh;
+    object-fit: contain;
+ 
+}
+
+.auth-container {
+    width: clamp(320px, 90vw, 420px);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap:0.2rem;
+    
+  }
+  
+
+  .auth-container p {
+    font-size: clamp(14px, 1vw, 18px);
+    letter-spacing: .2em;
+    color: #dfdab9;
+    font-style:var(--color);
+    font-weight: bold;
+  }
+  
+  .auth-input {
+    width: 100%;
+    padding: clamp(0.75rem, 2.5vw, 1rem);
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.06);
+    color: #dfdab9;
+    outline: none;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+    
+  }
+  
+  .auth-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .auth-input:focus {
+    border-color: rgb(176, 179, 16);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+  }
+  
+  .remember-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .remember-row h3 {
+    font-size: clamp(14px, 1vw, 18px);
+    letter-spacing: .2em;
+    color: #dfdab9;
+    font-style:var(--color);
+    font-weight: bold;
+  }
+button {
+    position: relative;
+    display: block;
+  margin: 1rem auto;  
+    width: 21em;
+    height: 3em;
+    outline: none;
+    transition: 0.1s;
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ddebf0;
+    cursor: pointer;
+   
+  }
+  
+  #clip {
+    --color: #2761c3;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 5px double var(--color);
+    box-shadow: inset 0px 0px 15px #195480;
+    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+  
+  .arrow {
+    position: absolute;
+    transition: 0.2s;
+    background-color: #2761c3;
+    top: 35%;
+    width: 11%;
+    height: 30%;
+  }
+  
+  #leftArrow {
+    left: -13.5%;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
+  }
+  
+  #rightArrow {
+    -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
+    left: 102%;
+  }
+  
+  button:hover #rightArrow {
+    background-color: #27c39f;
+    left: -15%;
+    animation: 0.6s ease-in-out both infinite alternate rightArrow8;
+  }
+  
+  button:hover #leftArrow {
+    background-color: #27c39f;
+    left: 103%;
+    animation: 0.6s ease-in-out both infinite alternate leftArrow8;
+  }
+  
+  .corner {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    background-color: #2761c3;
+    box-shadow: inset 1px 1px 8px #2781c3;
+    transform: scale(1) rotate(45deg);
+    transition: 0.2s;
+  }
+  
+  #rightTop {
+    top: -1.98em;
+    left: 91%;
+  }
+  
+  #leftTop {
+    top: -1.96em;
+    left: -3.0em;
+  }
+  
+  #leftBottom {
+    top: 2.10em;
+    left: -2.15em;
+  }
+  
+  #rightBottom {
+    top: 45%;
+    left: 88%;
+  }
+  
+  button:hover #leftTop {
+    animation: 0.1s ease-in-out 0.05s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  button:hover #rightTop {
+    animation: 0.1s ease-in-out 0.15s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  button:hover #rightBottom {
+    animation: 0.1s ease-in-out 0.25s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  button:hover #leftBottom {
+    animation: 0.1s ease-in-out 0.35s both changeColor8,
+    0.2s linear 0.4s both lightEffect8;
+  }
+  
+  button:hover .corner {
+    transform: scale(1.25) rotate(45deg);
+  }
+  
+  button:hover #clip {
+    animation: 0.2s ease-in-out 0.55s both greenLight8;
+    --color: #27c39f;
+  }
+  
+  @keyframes changeColor8 {
+    from {
+      background-color: #2781c3;
+    }
+  
+    to {
+      background-color: #27c39f;
+    }
+  }
+  
+  @keyframes lightEffect8 {
+    from {
+      box-shadow: 1px 1px 5px #27c39f;
+    }
+  
+    to {
+      box-shadow: 0 0 2px #27c39f;
+    }
+  }
+  
+  @keyframes greenLight8 {
+    from {
+    }
+  
+    to {
+      box-shadow: inset 0px 0px 32px #27c39f;
+    }
+  }
+  
+  @keyframes leftArrow8 {
+    from {
+      transform: translate(0px);
+    }
+  
+    to {
+      transform: translateX(10px);
+    }
+  }
+  
+  @keyframes rightArrow8 {
+    from {
+      transform: translate(0px);
+    }
+  
+    to {
+      transform: translateX(-10px);
+    }
+  }
+
+  
+  .auth-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(102, 204, 255, 0.3);
+  }
+  button h4{
+    font-size: clamp(14px, 1vw, 18px);
+    letter-spacing: .2em;
+    color: #ffffff;
+    font-style:var(--color);
+    font-weight: bold;
+  }
+
+
+  .canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+    background: #2c2502; 
+    z-index: 2;      
+    opacity: 0.1;
+  }
+
+  
+  .bubble {
+    width: 30px;
+  height: 30px;
+  left: 50%;
+  animation: float 14s infinite;
+    position: absolute;
+    bottom: -150px;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation-timing-function: linear;
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgba(255,255,255,0.9),
+      rgba(255,255,255,0.3),
+      rgba(255,255,255,0.05)
+    );
+  }
+   
+  
+  .bubble:nth-child(odd)  { 
+    left: 10%; animation-duration: 12s; 
+  }
+  .bubble:nth-child(even) { left: 80%; animation-duration: 18s; }
+  
+  .bubble:nth-child(3n)   { left: 30%; width: 40px; height: 40px; }
+  .bubble:nth-child(4n)   { left: 50%; width: 25px; height: 25px; }
+  .bubble:nth-child(5n)   { left: 70%; width: 60px; height: 60px; }
+  
+  .bubble:nth-child(6n)   { animation-delay: -10s; }
+  .bubble:nth-child(7n)   { animation-delay: -5s; }
+  
+  
+  @keyframes float {
+    from {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(-120vh);
+      opacity: 0.8;
+    }
+  }
+    
