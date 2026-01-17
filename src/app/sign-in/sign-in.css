@@ -10,6 +10,7 @@ main{
     color: #EFF2E6;
     position: relative;
   z-index: 1;
+  font-family: 'Orbitron', sans-serif;
     
 }
 #divide {
@@ -37,9 +38,13 @@ main{
 
 .checkbox-wrapper-39 label {
   display: block;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
+  width: 3.1vw;
+  height: 6.2vh;
+    cursor: pointer;
+
+  margin-left: 3vw;
+  margin-right: 2px;
+ 
 }
 
 .checkbox-wrapper-39 input {
@@ -49,25 +54,28 @@ main{
 
 .checkbox-wrapper-39 input:checked ~ .checkbox {
  transform: rotate(45deg);
- width: 14px;
- margin-left: 12px;
+ width: 1.5vw;
+ margin-left: .1vw;
  border-color: #24c78e;
  border-top-color: transparent;
  border-left-color: transparent;
  border-radius: 0;
+ margin-bottom: 4em;
 }
 .welcome-container h1{
-    font-size: clamp(24px, 2.2vw, 40px);
+    font-size: 2.5vw;
    color: #beb588;
-   letter-spacing: .65em;
+   letter-spacing: .8em;
 }
 .welcome-container p{
-    font-size: clamp(14px, 1.2vw, 18px);
+    font-size:  1.2vw;
     letter-spacing: .3em;
     color: #dfdab9;
-    font-weight: 500;
+    font-weight: 100;
     font-style:var(--color);
     font-weight: bolder;
+    margin-left: 1em;
+    
 }
 .checkbox-wrapper-39 .checkbox {
     
@@ -79,54 +87,53 @@ main{
   transition: all 0.375s;
 }
 #icon {
-    width: clamp(22px, 1vw, 28px);
+    width:  2.4vw;
     height: auto;
   }
-#logo-image{
-    width:  110%;
+  .image-container{
+    width:  50%;
     max-height: 100vh;
+   
+   
+  }
+#logo-image{
+    width: 100%;
+    height: 100vh;
     object-fit: contain;
 }  
 .social-icons{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: clamp(15px, 2vw, 25px);
-    margin-top: clamp(15px, 2vw, 25px);
+    gap:  1.4vw;  
+    margin-top:  2vw;
 }
 .social-icons i{
-    font-size: clamp(14px, 1.5vw, 20px);
-    gap: clamp(10px, 1vw, 15px);
+    font-size:  1rem;
+    gap:  1rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    
+  font-family: 'Unbounded', cursive;
 }
 
- 
-.auth-container p{
-    font-size: clamp(12px, 1vw, 16px);
-    
-}
-#logo-image{
-    width: 95%;
-    height: 100vh;
-    object-fit: contain;
- 
-}
+
 
 .auth-container {
-    width: clamp(320px, 90vw, 420px);
+    width:  40vw;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
     gap:0.2rem;
+    margin-left: 4em;
     
   }
   
 
   .auth-container p {
-    font-size: clamp(14px, 1vw, 18px);
+    font-size:  1vw;
     letter-spacing: .2em;
     color: #dfdab9;
     font-style:var(--color);
@@ -134,9 +141,9 @@ main{
   }
   
   .auth-input {
-    width: 100%;
-    padding: clamp(0.75rem, 2.5vw, 1rem);
-    font-size: clamp(0.95rem, 2.5vw, 1rem);
+    width: 97%;
+    padding:  .3vw;
+    font-size:  2.5vw;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
@@ -165,7 +172,7 @@ main{
   }
   
   .remember-row h3 {
-    font-size: clamp(14px, 1vw, 18px);
+    font-size:  1vw;
     letter-spacing: .2em;
     color: #dfdab9;
     font-style:var(--color);
@@ -175,13 +182,13 @@ button {
     position: relative;
     display: block;
   margin: 1rem auto;  
-    width: 21em;
-    height: 3em;
+    width: 20vw;
+   height: 5.5vh;
     outline: none;
     transition: 0.1s;
     background-color: transparent;
     border: none;
-    font-size: 13px;
+
     font-weight: bold;
     color: #ddebf0;
     cursor: pointer;
@@ -204,7 +211,7 @@ button {
     position: absolute;
     transition: 0.2s;
     background-color: #2761c3;
-    top: 35%;
+    top: 45%;
     width: 11%;
     height: 30%;
   }
@@ -216,18 +223,18 @@ button {
   
   #rightArrow {
     -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
-    left: 102%;
+    left: 110%;
   }
   
   button:hover #rightArrow {
     background-color: #27c39f;
-    left: -15%;
+    left: -8%;
     animation: 0.6s ease-in-out both infinite alternate rightArrow8;
   }
   
   button:hover #leftArrow {
     background-color: #27c39f;
-    left: 103%;
+    left: 106%;
     animation: 0.6s ease-in-out both infinite alternate leftArrow8;
   }
   
@@ -345,11 +352,12 @@ button {
     box-shadow: 0 5px 15px rgba(102, 204, 255, 0.3);
   }
   button h4{
-    font-size: clamp(14px, 1vw, 18px);
+    font-size:  1vw;
     letter-spacing: .2em;
     color: #ffffff;
-    font-style:var(--color);
     font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    
   }
 
 
