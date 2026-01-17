@@ -1,4 +1,4 @@
-name: Chat-app-frontend
+name: chat-app-frontend
 on:
   push:
     branches:
