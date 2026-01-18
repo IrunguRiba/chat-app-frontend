@@ -1,4 +1,96 @@
 
+
+.loading-container {
+  position: fixed; 
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background: transparent;
+  transition: opacity 12s ease-in-out;
+  transition-delay: 12s;
+  
+}
+
+.loading-container.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 43vh;
+  background-color: #34260a;
+  transform-origin: top center;
+  animation: slideTop 4s ease-out 1 forwards;
+  animation-delay: 6s;
+}
+
+.right {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 57vh;
+  background-color: #34260a;
+  transform-origin: bottom center;
+  animation: slideBottom 4s ease-out 1 forwards;
+  animation-delay: 6s;
+}
+
+@keyframes slideTop {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes slideBottom {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+.loading-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0.25vh;
+  width: 100vw;
+  background: linear-gradient(90deg, #fff2c6, #ffd36a, #ffb700);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: fillLine 5s ease-in-out 1s forwards;
+
+
+}
+
+
+@keyframes fillLine {
+  100% { transform: scaleX(1); }
+}
+
+.loading-text {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.8rem;
+  color: black;
+  animation: textSequence 5s ease-in-out 1s forwards;
+ 
+}
+
+@keyframes textSequence {
+  0%, 70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+
+
+
 .main-wrapper{
   width: 100vw;
   height: 100vh;

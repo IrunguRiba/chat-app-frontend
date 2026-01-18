@@ -53,3 +53,12 @@
 <app-texts class="text-app"></app-texts>
 </main>
 
+
+<div class="loading-container" [class.hidden]="!isLoading">
+  <div class="left"></div>
+  <div class="right">
+    <div class="loading-line"></div>
+  </div>
+  <p class="loading-text">Loading...</p>
+</div>
+
