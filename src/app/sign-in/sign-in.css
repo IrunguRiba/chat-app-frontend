@@ -19,7 +19,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 43vh;
+  height: 46vh;
   background-color: #34260a;
   transform-origin: top center;
   animation: slideTop 4s ease-out 1 forwards;
@@ -31,7 +31,7 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 57vh;
+  height: 54vh;
   background-color: #34260a;
   transform-origin: bottom center;
   animation: slideBottom 4s ease-out 1 forwards;
@@ -67,7 +67,7 @@
 
 .loading-text {
   position: absolute;
-  top: 35%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Orbitron', sans-serif;
