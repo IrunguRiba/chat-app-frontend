@@ -174,7 +174,7 @@ main{
   transition: all 0.375s;
 }
 #icon {
-    width:  2.4vw;
+    width:  2vw;
     height: auto;
   }
   .image-container{
@@ -218,9 +218,6 @@ main{
     
   }
   
-
- 
- /* From Uiverse.io by foxyyyyyyyyyyyyy */ 
 .form-control {
   position: relative;
   margin: 1.2em 0 1.6em;
@@ -295,190 +292,63 @@ main{
   }
   
   
-button {
-    position: relative;
-    display: block;
-  margin: 1rem auto;  
-    width: 20vw;
-   height: 5.2vh;
-    outline: none;
-    transition: 0.1s;
-    background-color: transparent;
-    border: none;
-    color: #ddebf0;
-    cursor: pointer;
-   
-  }
-  
-  #clip {
-    --color: #2761c3;
-    position: absolute;
-    top: 0;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    border: 5px double var(--color);
-    box-shadow: inset 0px 0px 15px #195480;
-    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  }
-  
-  .arrow {
-    position: absolute;
-    transition: 0.2s;
-    background-color: #2761c3;
-    top: 45%;
-    width: 11%;
-    height: 30%;
-  }
-  
-  #leftArrow {
-    left: -13.5%;
-    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
-  }
-  
-  #rightArrow {
-    -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
-    left: 110%;
-  }
-  
-  button:hover #rightArrow {
-    background-color: #27c39f;
-    left: -8%;
-    animation: 0.6s ease-in-out both infinite alternate rightArrow8;
-  }
-  
-  button:hover #leftArrow {
-    background-color: #27c39f;
-    left: 106%;
-    animation: 0.6s ease-in-out both infinite alternate leftArrow8;
-  }
-  
-  .corner {
-    position: absolute;
-    width: 4em;
-    height: 4em;
-    background-color: #2761c3;
-    box-shadow: inset 1px 1px 8px #2781c3;
-    transform: scale(1) rotate(45deg);
-    transition: 0.2s;
-  }
-  
-  #rightTop {
-    top: -1.98em;
-    left: 91%;
-  }
-  
-  #leftTop {
-    top: -1.96em;
-    left: -3.0em;
-  }
-  
-  #leftBottom {
-    top: 2.10em;
-    left: -2.15em;
-  }
-  
-  #rightBottom {
-    top: 45%;
-    left: 88%;
-  }
-  
-  button:hover #leftTop {
-    animation: 0.1s ease-in-out 0.05s both changeColor8,
-    0.2s linear 0.4s both lightEffect8;
-  }
-  
-  button:hover #rightTop {
-    animation: 0.1s ease-in-out 0.15s both changeColor8,
-    0.2s linear 0.4s both lightEffect8;
-  }
-  
-  button:hover #rightBottom {
-    animation: 0.1s ease-in-out 0.25s both changeColor8,
-    0.2s linear 0.4s both lightEffect8;
-  }
-  
-  button:hover #leftBottom {
-    animation: 0.1s ease-in-out 0.35s both changeColor8,
-    0.2s linear 0.4s both lightEffect8;
-  }
-  
-  button:hover .corner {
-    transform: scale(1.25) rotate(45deg);
-  }
-  
-  button:hover #clip {
-    animation: 0.2s ease-in-out 0.55s both greenLight8;
-    --color: #27c39f;
-  }
-  
-  @keyframes changeColor8 {
-    from {
-      background-color: #2781c3;
-    }
-  
-    to {
-      background-color: #27c39f;
-    }
-  }
-  
-  @keyframes lightEffect8 {
-    from {
-      box-shadow: 1px 1px 5px #27c39f;
-    }
-  
-    to {
-      box-shadow: 0 0 2px #27c39f;
-    }
-  }
-  
-  @keyframes greenLight8 {
-    from {
-    }
-  
-    to {
-      box-shadow: inset 0px 0px 32px #27c39f;
-    }
-  }
-  
-  @keyframes leftArrow8 {
-    from {
-      transform: translate(0px);
-    }
-  
-    to {
-      transform: translateX(10px);
-    }
-  }
-  
-  @keyframes rightArrow8 {
-    from {
-      transform: translate(0px);
-    }
-  
-    to {
-      transform: translateX(-10px);
-    }
-  }
+/* From Uiverse.io by alexmaracinaru */ 
+.cta {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.8rem;
 
-  
-  .auth-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 5px 15px rgba(102, 204, 255, 0.3);
-  }
-  button h4 {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    margin: 0;
-    z-index: 10;
-    font-size: 1vw;
-    letter-spacing: 0.1em;
-    color: #ffffff;
-    font-family: 'Orbitron', sans-serif;
-    pointer-events: none;
-  }
+
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: rgb(128, 122, 122);
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
   
 
 
