@@ -54,15 +54,33 @@
   left: 0;
   height: 0.25vh;
   width: 100vw;
-  background: linear-gradient(90deg, #fff2c6, #ffd36a, #ffb700);
+  background: linear-gradient(
+    90deg,
+    rgba(52,38,10,0) 0%,   
+    rgba(129,98,25,0.8) 50%,
+    rgba(168,125,5,1) 100%
+  );
+  
+
   transform: scaleX(0);
   transform-origin: left;
-  animation: fillLine 5s ease-in-out 1s forwards;
+  animation: fillAndDisappear 6.9s ease-in-out forwards; 
 }
 
 
-@keyframes fillLine {
-  100% { transform: scaleX(1); }
+@keyframes fillAndDisappear {
+  0% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  83% { 
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0; 
+  }
 }
 
 .loading-text {
@@ -72,9 +90,9 @@
   transform: translate(-50%, -50%);
   font-family: 'Orbitron', sans-serif;
   font-size: 1.2rem;
-  letter-spacing: 0.8rem;
+  letter-spacing: 1rem;
   color: black;
-  animation: textSequence 5s ease-in-out 1s forwards;
+  animation: textSequence 5.3s ease-in-out 1s forwards;
 
 }
 
