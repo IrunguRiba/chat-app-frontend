@@ -9,17 +9,30 @@ import {Observable, throwError} from 'rxjs'
 export class MainService {
 
   // http://localhost:4000/api/v1/contact/new
+  // http://localhost:4000/api/v1/contact/login
 
- private  url='http://localhost:4000/api/v1/contact/new'
+ private  url='http://localhost:4000/api/v1/contact'
 
   constructor( private http:HttpClient  ){}
 
   register(user:User): Observable<User>{
-    return this.http.post<User>(this.url, user).pipe(
+    console.log('register user:', user);
+    return this.http.post<User>(`${this.url}/register`, user).pipe(
       catchError((err:any)=>{
         console.error("Something went wrong during registration", err)
         return throwError(() => err);
       }) 
     )
   } 
+
+  login (user:User): Observable<User>{
+    console.log(`Logging user ${user}`)
+    return this.http.post<User> (`${this.url}/login`, user).pipe(
+      catchError((err:any)=>{
+        console.error("Something went wrong during registration", err)
+        return throwError(() => err);
+      }) 
+    )
+
+  }
 }

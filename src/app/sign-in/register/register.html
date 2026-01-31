@@ -1,94 +1,93 @@
 <div class="wrapper" [class.active]="signUpModalOpen">
-    <div class="welcome-container">
-      <p class="welcome-greetings">Hi Pal</p>
-      <div class="welcome-text">
-        <p class="cursor typewriter-animation">
-          Life’s tough, but connections makes it
-          <span>e</span><span>e</span><span>s</span><span>s</span><span>i</span><span>e</span>
-          <span>r</span>
-        </p>
-        <span class="button-text" (click)="openSignUp()">Join us</span>
-        <p class="cursor typewriter-animation third-line">to connect with people close to you</p>
-      </div>
+  <div class="welcome-container">
+    <p class="welcome-greetings">Hi Pal</p>
+    <div class="welcome-text">
+      <p class="cursor typewriter-animation">
+        Life’s tough, but connections makes it
+        <span>e</span><span>e</span><span>s</span><span>s</span><span>i</span><span>e</span>
+        <span>r</span>
+      </p>
+      <span class="button-text" (click)="openSignUp()">Join us</span>
+      <p class="cursor typewriter-animation third-line">to connect with people close to you</p>
     </div>
-  
-    <div class="popup">
-      <div class="popup-inside">
-        <div class="content">
-          <div class="content-wrapper">
-            <div class="close-btn-wrapper">
-              <img [src]="closeButton" class="close-button-icon" (click)="signUpModalOpen = false" />
-            </div>
-  
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-              <div class="form-group">
-                <label for="name" class="form-label">Username</label>
-                <input
-                  id="name"
-                  formControlName="name"
-                  type="text"
-                  class="form-input"
-                  [class.form-input-error]="
-                    contactForm.get('name')?.invalid && contactForm.get('name')?.touched
-                  "
-                  placeholder="Enter your full name"
-                />
-                <div
-                  class="error-message"
-                  *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
-                >
-                  <small *ngIf="contactForm.get('name')?.hasError('required')"
-                    >Name is required</small
-                  >
-                  <small *ngIf="contactForm.get('name')?.hasError('minlength')"
-                    >Name should be at least 3 characters</small
-                  >
-                </div>
-              </div>
-  
-              <div class="form-group">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input
-                  id="phone"
-                  formControlName="phone"
-                  type="tel"
-                  class="form-input"
-                  [class.form-input-error]="
-                    contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched
-                  "
-                  placeholder="Enter phone number"
-                />
-                <div
-                  class="error-message"
-                  *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched"
-                >
-                  <small *ngIf="contactForm.get('phone')?.hasError('required')"
-                    >Phone number is required</small
-                  >
-                  <small *ngIf="contactForm.get('phone')?.hasError('pattern')"
-                    >Phone number format is invalid</small
-                  >
-                </div>
-              </div>
-  
-              <button
-                type="submit"
-                class="submit-btn"
-                [disabled]="contactForm.invalid"
-                [class.submit-btn-disabled]="contactForm.invalid"
+  </div>
+
+  <div class="popup">
+    <div class="popup-inside">
+      <div class="content">
+        <div class="content-wrapper">
+          <div class="close-btn-wrapper">
+            <img [src]="closeButton" class="close-button-icon" (click)="signUpModalOpen = false" />
+          </div>
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Username</label>
+              <input
+                id="name"
+                formControlName="name"
+                type="text"
+                class="form-input"
+                [class.form-input-error]="
+                  contactForm.get('name')?.invalid && contactForm.get('name')?.touched
+                "
+                placeholder="Enter your full name"
+              />
+              <div
+                class="error-message"
+                *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
               >
-                Submit
-              </button>
-            </form>
-  
-            <div class="privacy-policy">
-              <p>
-                <a class="privacy-link" (click)="privacyPage()">Privacy Policy</a>
-              </p>
+                <small *ngIf="contactForm.get('name')?.hasError('required')"
+                  >Name is required</small
+                >
+                <small *ngIf="contactForm.get('name')?.hasError('minlength')"
+                  >Name should be at least 3 characters</small
+                >
+              </div>
             </div>
+
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input
+                id="phone"
+                formControlName="number"
+                type="tel"
+                class="form-input"
+                [class.form-input-error]="
+                  contactForm.get('number')?.invalid && contactForm.get('number')?.touched
+                "
+                placeholder="Enter phone number"
+              />
+              <div
+                class="error-message"
+                *ngIf="contactForm.get('number')?.invalid && contactForm.get('number')?.touched"
+              >
+                <small *ngIf="contactForm.get('number')?.hasError('required')"
+                  >Phone number is required</small
+                >
+                <small *ngIf="contactForm.get('number')?.hasError('pattern')"
+                  >Phone number format is invalid</small
+                >
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="submit-btn"
+              [disabled]="contactForm.invalid"
+              [class.submit-btn-disabled]="contactForm.invalid"
+            >
+              Submit
+            </button>
+          </form>
+
+          <div class="privacy-policy">
+            <p>
+              <a class="privacy-link" (click)="privacyPage()">Privacy Policy</a>
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
