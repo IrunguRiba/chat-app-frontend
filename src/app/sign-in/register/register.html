@@ -1,0 +1,26 @@
+<div class="wrapper" [class.active]="signUpModalOpen">
+    <div class="welcome-container">
+      <p class="welcome-greetings">Hi Pal</p>
+      <div class="welcome-text">
+        <p class="cursor typewriter-animation">
+          Life’s tough, but connections makes it 
+          <span>e</span><span>e</span><span>s</span><span>s</span><span>i</span><span>e</span><span>r</span>
+        </p>  
+        <span class="button-text" (click)="openSignUp()">Join us</span>
+        <p class="cursor typewriter-animation third-line">
+          to connect with people close to you
+        </p>  
+      </div>
+    </div>
+  
+    <div class="popup">
+      <div class="popup-inside"></div>
+      <div class="content">
+        <div class="content-wrapper">
+          <input type="text" placeholder="name">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
