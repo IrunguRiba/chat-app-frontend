@@ -5,9 +5,10 @@ import {LoadingPage} from './loading-page/loading-page';
 import { Register } from './sign-in/register/register';
 
 export const routes: Routes = [
-   
-    {path: '', component: SignIn},
-    {path:'register', component:Register},
+    
+    {path:'', component:Register},
+    {path: 'sign-in', component: SignIn},
+  
     {path: 'messages', component: Messages},
     {path: 'loading-page', component: LoadingPage}
 ];

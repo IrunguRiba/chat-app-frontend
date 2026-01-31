@@ -35,6 +35,6 @@ this.showLine=false
 
 
   logoutUser(){
-    this.router.navigate(['']);
+    this.router.navigate(['/sign-in']);
   }
 }
