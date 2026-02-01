@@ -25,9 +25,12 @@ export class MainService {
     )
   } 
 
-  login (user:User): Observable<User>{
-    console.log(`Logging user ${user}`)
-    return this.http.post<User> (`${this.url}/login`, user).pipe(
+  login (name:string, number:string): Observable<User>{
+    console.log(`Logging user ${name}, ${number}`)
+    return this.http.post<User> (`${this.url}/login`, {
+      name,
+      number
+    }).pipe(
       catchError((err:any)=>{
         console.error("Something went wrong during registration", err)
         return throwError(() => err);

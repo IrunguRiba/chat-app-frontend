@@ -63,4 +63,7 @@ export class Register {
   privacyPage(){
 
   }
+  signInPage(){
+    this.router.navigate(['/sign-in']);
+  }
 }

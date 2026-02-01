@@ -116,6 +116,7 @@ main{
     position: relative;
   z-index: 1;
   font-family: 'Orbitron', sans-serif;
+
     
 }
 #divide {
@@ -231,8 +232,8 @@ main{
     margin-inline: auto;
     display: flex;
     flex-direction: column;
-    gap:0.2rem;
-    margin-left: 4em;
+   
+    margin-left: 5.5em;
     
   }
   
@@ -252,9 +253,13 @@ main{
   display: block;
   width: 100%;
   padding: 1rem 0;
-  font-size:  1rem;
+  font-size:  1.2rem;
   color: #fff;
-  font-family: 'Unbounded', cursive;
+  font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.08em;
+
+  text-align: center;
 }
 
 .form-control input:focus,
@@ -291,6 +296,7 @@ main{
     display: flex;
     align-items: center;
     gap: 0.7rem;
+    margin-left: 5%;
     
   }
   
@@ -318,6 +324,8 @@ main{
   font-family: 'Orbitron', sans-serif;
   font-size: 1.5rem;
   letter-spacing: 0.8rem;
+  margin-left: 35%;
+  margin-top: 5%;
 
 
 }
@@ -426,4 +434,14 @@ main{
       opacity: 0.8;
     }
   }
-    
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  transition: background-color 9999s ease-in-out 0s;
+  box-shadow: 0 0 0px 1000px transparent inset;
+  background-color: transparent !important;
+  caret-color: #fff;
+}

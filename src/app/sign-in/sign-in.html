@@ -17,67 +17,70 @@
         </div>
   
         <div class="auth-container">
-         <!-- From Uiverse.io by foxyyyyyyyyyyyyy --> 
-<div class="form-control">
-  <input required="" type="value">
-  <label>
-      <span style="transition-delay:350ms">U</span>
-      <span style="transition-delay:300ms">s</span>
-      <span style="transition-delay:250ms">e</span>
-      <span style="transition-delay:200ms">r</span>
+         
+<form  (ngSubmit)="onLogin()">
+  <div class="form-control">
+    <input required placeholder="" [(ngModel)]="name" name="name">
+    <label>
+        <span style="transition-delay:350ms">U</span>
+        <span style="transition-delay:300ms">s</span>
+        <span style="transition-delay:250ms">e</span>
+        <span style="transition-delay:200ms">r</span>
+        <span style="transition-delay:150ms">n</span>
+        <span style="transition-delay:100ms">a</span>
+        <span style="transition-delay:50ms">m</span>
+        <span style="transition-delay:0ms">e</span>
+    </label>
+  </div>
+          
+  <div class="form-control">
+    <input required  placeholder=""   [(ngModel)]="number" name="number">
+    <label>
+      <span style="transition-delay:0ms">P</span>
+      <span style="transition-delay:50ms">h</span>
+      <span style="transition-delay:100ms">o</span>
       <span style="transition-delay:150ms">n</span>
-      <span style="transition-delay:100ms">a</span>
-      <span style="transition-delay:50ms">m</span>
-      <span style="transition-delay:0ms">e</span>
-  </label>
-</div>
-        
-<div class="form-control">
-  <input required="" type="value">
-  <label>
-    <span style="transition-delay:0ms">P</span>
-    <span style="transition-delay:50ms">h</span>
-    <span style="transition-delay:100ms">o</span>
-    <span style="transition-delay:150ms">n</span>
-    <span style="transition-delay:200ms">e</span>
-    <span style="transition-delay:250ms">&nbsp;</span>
-    <span style="transition-delay:300ms">N</span>
-    <span style="transition-delay:350ms">u</span>
-    <span style="transition-delay:400ms">m</span>
-    <span style="transition-delay:450ms">b</span>
-    <span style="transition-delay:500ms">e</span>
-    <span style="transition-delay:550ms">r</span>    
-  </label>
-</div>
-        
-          <div class="remember-row">
-            <div class="checkbox-wrapper-39">
-              <label>
-                <input type="checkbox" />
-                <span class="checkbox"></span>
-              </label>
-            </div>
-            <h3>Remember for 30 days</h3>
-          </div>
-  
-      
-<button class="cta" (click)="goToMessages()">
-  <span class="hover-underline-animation"> CONTINUE </span>
-  <svg
-    id="arrow-horizontal"
-    xmlns="http://www.w3.org/2000/svg"
-    width="30"
-    height="10"
-    viewBox="0 0 46 16"
-  >
-    <path
-      id="Path_10"
-      data-name="Path 10"
-      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-      transform="translate(30)"
-    ></path>
-  </svg>
+      <span style="transition-delay:200ms">e</span>
+      <span style="transition-delay:250ms">&nbsp;</span>
+      <span style="transition-delay:300ms">N</span>
+      <span style="transition-delay:350ms">u</span>
+      <span style="transition-delay:400ms">m</span>
+      <span style="transition-delay:450ms">b</span>
+      <span style="transition-delay:500ms">e</span>
+      <span style="transition-delay:550ms">r</span>    
+    </label>
+  </div>
+  <div class="remember-row">
+    <div class="checkbox-wrapper-39">
+      <label>
+        <input type="checkbox" />
+        <span class="checkbox"></span>
+      </label>
+    </div>
+    <h3>Remember for 30 days</h3>
+  </div>
+
+
+<button class="cta">
+<span class="hover-underline-animation"  type="submit">CONTINUE </span>
+<svg
+id="arrow-horizontal"
+xmlns="http://www.w3.org/2000/svg"
+width="30"
+height="10"
+viewBox="0 0 46 16"
+>
+<path
+id="Path_10"
+data-name="Path 10"
+d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+transform="translate(30)"
+></path>
+</svg>
 </button>
+</form>
+        
+          
 
         </div>          
   
