@@ -10,8 +10,9 @@ export class MainService {
 
   // http://localhost:4000/api/v1/contact/new
   // http://localhost:4000/api/v1/contact/login
+  //https://chat-pp-backend.onrender.com
 
- private  url='http://localhost:4000/api/v1/contact'
+ private  url='https://chat-pp-backend.onrender.com/api/v1/contact'
 
   constructor( private http:HttpClient  ){}
 
