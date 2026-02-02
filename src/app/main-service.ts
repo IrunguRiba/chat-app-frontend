@@ -8,7 +8,7 @@ import {Observable, throwError} from 'rxjs'
 })
 export class MainService {
 
-  // http://localhost:4000/api/v1/contact/new
+  // http://localhost:4000/api/v1/contact/register
   // http://localhost:4000/api/v1/contact/login
   //https://chat-pp-backend.onrender.com
 
@@ -18,7 +18,7 @@ export class MainService {
 
   register(user:User): Observable<User>{
     console.log('register user:', user);
-    return this.http.post<User>(`${this.url}/register`, user).pipe(
+    return this.http.post<User>(`${this.url}/`, user).pipe(
       catchError((err:any)=>{
         console.error("Something went wrong during registration", err)
         return throwError(() => err);

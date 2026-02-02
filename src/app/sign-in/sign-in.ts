@@ -51,6 +51,7 @@ export class SignIn implements OnInit {
 
         localStorage.setItem('token', data.token);
         console.log('token stored:', data.token);
+        console.log('navigating to messages')
         this.router.navigate(['/messages']);
       },
       error: (error: any) => {
