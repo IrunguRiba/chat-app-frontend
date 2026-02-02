@@ -18,7 +18,7 @@ export class MainService {
 
   register(user:User): Observable<User>{
     console.log('register user:', user);
-    return this.http.post<User>(`${this.url}/`, user).pipe(
+    return this.http.post<User>(`${this.url}/new`, user).pipe(
       catchError((err:any)=>{
         console.error("Something went wrong during registration", err)
         return throwError(() => err);
