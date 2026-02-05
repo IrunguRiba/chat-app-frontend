@@ -25,6 +25,7 @@ export class Register {
     if (this.bgVideo?.nativeElement) {
       const videoEl = this.bgVideo.nativeElement;
       videoEl.load();
+      videoEl.muted = true;
       videoEl.play().catch((err:any) => console.log('Autoplay blocked?', err));
     }
   }
