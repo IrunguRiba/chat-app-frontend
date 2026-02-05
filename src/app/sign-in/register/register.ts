@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'; 
@@ -16,6 +16,18 @@ templateUrl: './register.html',
 })
 export class Register {
 
+  backgroundVideo='vid1.mp4'
+
+  @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
+
+  ngAfterViewInit() {
+    
+    if (this.bgVideo?.nativeElement) {
+      const videoEl = this.bgVideo.nativeElement;
+      videoEl.load();
+      videoEl.play().catch((err:any) => console.log('Autoplay blocked?', err));
+    }
+  }
   closeButton='close.png'
   signUpModalOpen=false
 

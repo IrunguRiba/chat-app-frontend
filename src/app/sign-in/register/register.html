@@ -1,4 +1,11 @@
 <div class="wrapper" [class.active]="signUpModalOpen">
+
+  <div class="video-container">
+    <video #bgVideo class="background-clip" autoplay loop muted playsinline>
+      <source [attr.src]="backgroundVideo" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
   <div class="welcome-container">
     <p class="welcome-greetings">Hi Pal</p>
     <div class="welcome-text">
