@@ -12,4 +12,7 @@ export class Texts {
   searchIcon='/search.png';
   groupIcon='/group-chat.png';
   searchIcon2='/search2.png';
+
+
+  
 }
