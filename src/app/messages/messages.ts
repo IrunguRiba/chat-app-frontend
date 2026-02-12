@@ -33,7 +33,7 @@ if (token) {
   this.username=name;
   console.log('Name:', name);
 }else{
-  return;
+  this.router.navigate(['/sign-in'])
 }
     setTimeout(() => {
       this.isLoading = false; 

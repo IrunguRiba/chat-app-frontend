@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy} from '@angular/core';
 import { SocketService } from '../../socket-service';
 import { Subscription } from 'rxjs';
 import { jwtDecode } from "jwt-decode";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,6 +26,11 @@ export class Texts implements OnInit, OnDestroy {
   incomingMessage:string[]=[]
   outgoingMessage:string=''
   joinGroup:string[]=[]
+  constructor(private socketService: SocketService, private router: Router){
+    this.messageSubscription = this.socketService.on('incoming-message').subscribe((data: any) => {
+      this.incomingMessage.push(data);
+    });
+  }
 
   ngOnInit(){
 
@@ -39,14 +45,12 @@ if(token){
   this.phoneNumber=number;
   console.log('Name:', name);
   console.log('Number:', number);
+}else{
+this.router.navigate(['/sign-in'])
 }
 
   }
-  constructor(private socketService: SocketService){
-    this.messageSubscription = this.socketService.on('incoming-message').subscribe((data: any) => {
-      this.incomingMessage.push(data);
-    });
-  }
+ 
 
 
   /*
