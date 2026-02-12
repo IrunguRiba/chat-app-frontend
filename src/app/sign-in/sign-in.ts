@@ -48,9 +48,8 @@ export class SignIn implements OnInit {
     this.mainService.login(this.name, this.number).subscribe({
       next: (data: any) => {
         console.log('Login success', data);
-
-        localStorage.setItem('token', data.token);
-        console.log('token stored:', data.token);
+        localStorage.setItem('token', data.Token);
+        console.log('token stored:', data.Token);
         console.log('navigating to messages')
         this.router.navigate(['/messages']);
       },
