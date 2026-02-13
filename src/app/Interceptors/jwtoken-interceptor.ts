@@ -1,8 +1,9 @@
 import { HttpInterceptorFn, HttpRequest, HttpHandlerFn } from '@angular/common/http';
-
+import { Router } from '@angular/router';
+import { inject } from '@angular/core';
 export const jwtokenInterceptor: HttpInterceptorFn = (req:HttpRequest<any>, next:HttpHandlerFn) => {
 
-  debugger;
+  const router = inject(Router);
 
   const userToken= localStorage.getItem('token');
 
@@ -17,6 +18,7 @@ Authorization: `Bearer ${userToken}`
     })
     return next(newRequest);
   } else{
+    router.navigate(['/sign-in']);
     return next(req)
   }
 };

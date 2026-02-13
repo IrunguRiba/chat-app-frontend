@@ -27,30 +27,20 @@
 <div class="recent-messages-wrapper">
   <p>RECENT</p>
 </div>
-<div class="statuses">
-  <div>
-    <div class="status-circle">
-      <img [src]="addStatusIcon" alt="add-status-icon" id="icon">
-    </div>
-    <p id="status-name">{{username}}</p>
-  </div>
-  <div>
-    <div class="status-circle">
-      <img [src]="addStatusIcon" alt="add-status-icon" id="icon">
-    </div>
-    <p id="status-name">{{username}}</p>
-  </div>
-  <div>
-    <div class="status-circle">
-      <img [src]="addStatusIcon2" alt="add-status-icon" id="icon">
-    </div>
-    <p id="status-name">{{username}}</p>
-  </div>
 
+<div class="status-container">
+  <div class="statuses" *ngFor="let user of users" (click)="selectStatus(user)">
+    <div>
+      <div class="status-circle">
+        <img [src]="addStatusIcon2" alt="add-status-icon" id="icon">
+      </div>
+      <p id="status-name">{{user.name}}</p>
+    </div>
+  </div>
 </div>
 
 
-<app-texts class="text-app"></app-texts>
+<app-texts [statusData]="selectedStatus" class="text-app"></app-texts>
 </main>
 
 

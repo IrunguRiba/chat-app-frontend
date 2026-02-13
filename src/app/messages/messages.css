@@ -231,7 +231,8 @@
     opacity: 0.8; 
     z-index: 2;
 }
-.statuses {
+.status-container {
+  cursor: pointer;
   max-width: 60%;
   overflow-x: auto;  
   height: 7.7em;

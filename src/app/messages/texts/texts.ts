@@ -1,18 +1,22 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, SimpleChanges } from '@angular/core';
 import { SocketService } from '../../socket-service';
 import { Subscription } from 'rxjs';
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 import { Router } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-texts',
-  imports: [],
+  imports: [FormsModule, DatePipe, CommonModule],
+  standalone: true,
   templateUrl: './texts.html',
-  styleUrl: './texts.css',
+  styleUrls: ['./texts.css'], // ✅ fixed
 })
 export class Texts implements OnInit, OnDestroy {
-  private messageSubscription: Subscription
+  private messageSubscription!: Subscription;
+  @Input() statusData: { name: string; number: string } | null = null;
+
   addStatusIcon='img1.webp';
   addStatusIcon2='img2.jpg';
   searchIcon='/search.png';
@@ -20,53 +24,82 @@ export class Texts implements OnInit, OnDestroy {
   searchIcon2='/search2.png';
   username: string=''
   phoneNumber:string='';
+  receiverNumber:string=''
   content:string=''
   msgStatus:string='unread'
 
-  incomingMessage:string[]=[]
-  outgoingMessage:string=''
+  messages: any[] = [];
+
   joinGroup:string[]=[]
-  constructor(private socketService: SocketService, private router: Router){
+
+  constructor(private socketService: SocketService, private router: Router) {
     this.messageSubscription = this.socketService.on('incoming-message').subscribe((data: any) => {
-      this.incomingMessage.push(data);
+      const messageType = data.from === this.phoneNumber
+      ? 'outgoing'
+      : 'incoming';
+     
+      this.messages.push({
+        ...data,
+        type: messageType,
+        createdAt: new Date(data.createdAt)
+      });
+      console.log('Received text', data);
     });
   }
 
-  ngOnInit(){
-
-const token= localStorage.getItem('token');
-
-if(token){
-
-  const decoded: any= jwtDecode(token);
-  const name = decoded.name;
-  const number = decoded.number;
-  this.username=name;
-  this.phoneNumber=number;
-  console.log('Name:', name);
-  console.log('Number:', number);
-}else{
-this.router.navigate(['/sign-in'])
-}
-
-  }
- 
-
-
-  /*
-What I need to do
-1.send a text via socket connection
-2. The intended user to receive the text
-  */
-  sendMessage() {
-    this.socketService.emit('outgoing-message', { 
-      to: this.phoneNumber,
-      content: this.content,
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['statusData'] && changes['statusData'].currentValue) {
+      const data = changes['statusData'].currentValue;
+      this.username = data.name;
+      this.receiverNumber = data.number;
+      console.log('Selected receiver:', this.receiverNumber);
     }
-      );
-    this.outgoingMessage = '';
+    if (this.phoneNumber && this.receiverNumber) {
+      this.socketService.emit('join', {
+        sender: this.phoneNumber,
+        receiver: this.receiverNumber
+      });
+    }
   }
-ngOnDestroy(){
-  this.messageSubscription.unsubscribe();
-}
+  
+
+  ngOnInit() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded: any = jwtDecode(token);
+      this.phoneNumber = decoded.number;
+      
+    } else {
+      this.router.navigate(['/sign-in']);
+      return;
+    }
+  }
+
+  sendMessage() {
+    if (!this.content.trim()) return;
+    if (!this.receiverNumber) {
+      console.error('No receiver selected');
+      return;
+    }
+    const messageData = {
+      to: this.receiverNumber,
+      from: this.phoneNumber,
+      content: this.content,
+      createdAt: new Date()
+    };
+
+    this.socketService.emit('outgoing-message', messageData);
+
+    this.messages.push({
+      ...messageData,
+      type: 'outgoing',
+      createdAt: new Date()
+    });
+    this.content = '';
+    console.log(`Sending ${this.content} to: ${this.receiverNumber}`, );
+  }
+
+  ngOnDestroy() {
+    this.messageSubscription.unsubscribe();
+  }
 }

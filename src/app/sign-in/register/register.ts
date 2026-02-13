@@ -59,7 +59,6 @@ export class Register {
       next:(data:any)=>{
         console.log('Registration successful', data);
         console.log('Navigating to sign in')
-        this.router.navigate(['/sign-in']);
 
       },
       error: (error:any)=>{

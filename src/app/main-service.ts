@@ -13,6 +13,7 @@ export class MainService {
   //https://chat-pp-backend.onrender.com
 
  private  url='https://chat-pp-backend.onrender.com/api/v1/contact'
+ private localUrl='http://localhost:4000/api/v1/contact'
 
   constructor( private http:HttpClient  ){}
 
@@ -39,4 +40,14 @@ export class MainService {
     )
 
   }
+
+  getUser(): Observable<User>{
+    return this.http.get<User>(`${this.localUrl}/all`).pipe(
+      catchError((err:any)=>{
+        console.error("Something went wrong during registration", err)
+        return throwError(() => err);
+      }) 
+    )
+  }
+
 }
