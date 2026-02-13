@@ -42,7 +42,7 @@ export class MainService {
   }
 
   getUser(): Observable<User>{
-    return this.http.get<User>(`${this.localUrl}/all`).pipe(
+    return this.http.get<User>(`${this.url}/all`).pipe(
       catchError((err:any)=>{
         console.error("Something went wrong during registration", err)
         return throwError(() => err);

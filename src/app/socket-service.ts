@@ -11,7 +11,7 @@ private socket:Socket
 
 
 constructor(private http: HttpClient){
-  this.socket = io('http://localhost:4000');
+  this.socket = io('https://chat-pp-backend.onrender.com');
 }
 
 emit(event:string, data:any){
