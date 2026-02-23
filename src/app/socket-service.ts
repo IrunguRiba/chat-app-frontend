@@ -11,15 +11,17 @@ private socket:Socket
 
 
 constructor(private http: HttpClient){
-  this.socket = io('https://chat-pp-backend.onrender.com');
+  this.socket = io('http://localhost:4000');
 }
 
 emit(event:string, data:any){
+  console.log('Emitting event:', event, 'with data:', data);
   this.socket.emit(event, data);
 }
 
 
 on(event:string): Observable<any>{
+  console.log('Subscribing to event:', event);
   return new Observable ((observer:any)=>{
     this.socket.on(event, (data:any)=>{
 observer.next(data)

@@ -1,54 +1,16 @@
-<main class="main-wrapper">
+<main class="main-container">
+    <div class="header"> <app-header></app-header></div>
  
-  <div class="background-container">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="Moon">
-    <div class="stars"></div>
-    <div class="twinkling"></div>
-    <div class="clouds"></div>
-  </div>
+    <div class="status"><app-status></app-status></div>
 
-
-    <div class="title-and-search">
-      <div class="logout">
-        <i (click)="logoutUser()"><img [src]="logout" alt="Logout" id="icon"></i>
-      </div>
-        <p>Messages</p>  
-        <div class="search">
-            <div class="search__wrapper">
-              <input class="search__field" type="text" placeholder="Search">
-              <button type="button" class="search__icon">
-                <img [src]="searchIcon" alt="search-icon" id="icon">
-              </button> 
-            </div>
-          </div>
+    <div class="texts-container">
+        <div class="notification"><app-notification></app-notification></div>
+        <div class="texts"><app-texts></app-texts></div>
     </div>
-    <hr id="divide">
-
-<div class="recent-messages-wrapper">
-  <p>RECENT</p>
-</div>
-
-<div class="status-container">
-  <div class="statuses" *ngFor="let user of users" (click)="selectStatus(user)">
-    <div>
-      <div class="status-circle">
-        <img [src]="addStatusIcon2" alt="add-status-icon" id="icon">
-      </div>
-      <p id="status-name">{{user.name}}</p>
+    <div class="group"><app-group></app-group></div>
+    <div class="footer-container">
+        <p><a href="/privacy-policy">Privacy Policy</a></p>
+        <p><a href="/about-familia">About Familia</a></p>
+        <p>© 2026 <a href="/">AVITAL</a>. All Rights Reserved.</p>
     </div>
-  </div>
-</div>
-
-
-<app-texts [statusData]="selectedStatus" class="text-app"></app-texts>
 </main>
-
-
-<div class="loading-container" [class.hidden]="!isLoading">
-  <div class="left"></div>
-  <div class="right">
-    <div class="loading-line"></div>
-  </div>
-  <p class="loading-text">Loading...</p>
-</div>
-
