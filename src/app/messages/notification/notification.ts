@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
 })
 export class Notification {
   addStatusIcon2='img2.jpg';
+  image1='img1.webp';
+  image2='img2.jpg';
+  more='more.png'
 
 }

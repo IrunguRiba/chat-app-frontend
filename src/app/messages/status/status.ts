@@ -1,11 +1,20 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-status',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './status.html',
-  styleUrl: './status.css',
+  styleUrls: ['./status.css'],
 })
 export class Status {
+  img1 = 'img1.webp';
+  img2 = 'img2.jpg';
+  arrow = 'arrow.png';
+  search = 'search.png';
 
+  statuses = 50;
+  statusesArray = Array.from({ length: this.statuses });
 }

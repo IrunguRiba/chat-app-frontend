@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './group.css',
 })
 export class Group {
-  groupIcon='/group-chat.png';
+  groupIcon='group-chat.png';
+  arrow='arrow.png'
 }

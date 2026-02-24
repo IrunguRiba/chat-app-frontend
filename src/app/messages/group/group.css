@@ -1,0 +1,22 @@
+.group-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+}
+
+.group-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background-color: aqua;
+}
+i img{
+    height: 1em;
+    width: 1em;
+}
+.forward-icon{
+    rotate: 180deg;
+}
