@@ -33,9 +33,16 @@
     align-items: center;
     justify-content: space-around;
 }
-img{
+img {
     height: 1.7em;
     width: 1.7em;
+    opacity: 0.2;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+img:hover {
+    opacity: 0.8;
+    transform: scale(1.1); 
 }
 .right-icon{
     rotate: 180deg;
@@ -52,11 +59,11 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5em;
-    width: 5em;
+    height: 4em;
+    width: 4em;
     background-color: blueviolet;
     border-radius: 50%;
-    margin-top: -1.8em;
+    margin-top: -0.8em;
     margin-left: 1em;
   
 }
