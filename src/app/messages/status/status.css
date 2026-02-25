@@ -1,78 +1,186 @@
-.status-container{
+.status-container {
     height: 100%;
     width: 100%;
-    
+    overflow: hidden;
 }
-.title-search-wrapper{
-    height: 20%;
+
+.title-search-wrapper {
+    height: 10%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
-#status-title{
+
+#status-title {
     margin-left: 3em;
     margin-top: 3em;
     font-family: 'Orbitron', sans-serif;
     letter-spacing: 0.5em;
     color: aliceblue;
     font-size: 0.7rem;
-    font-weight: bolder;
+    font-weight: lighter;
 }
-#search-status{
-    margin-right: 3em;
-    margin-top: 1em;
-}
-.statuses-arrow-container{
-    margin-left: 8em;
-    margin-top: 1em;
-    height: 60%;
-    width: 74%;
-    margin-bottom: 1em;
+
+.input-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+margin-top: 2em;
+    position: relative;
+    margin-right: 2em; 
 }
-img {
+
+.input {
+    border-style: none;
+    height: 1em;
+    width: 0em;
+    outline: none;
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+    background-color: transparent;
+   margin-right: 3em;
+    color: #fff;
+    font-size: 1em;
+}
+
+.input::placeholder {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.5em;
+    color: aliceblue;
+    font-size: 0.7rem;
+    font-weight: lighter;
+    opacity: 0.5;
+
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+    width: 5em;
+    height: 1em;
+    outline: none;
+    border-style: none;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: 0.2s linear;
+}
+
+.icon:focus ~ .input,
+.input:focus {
+     font-family: 'Orbitron', sans-serif;
+    box-shadow: none;
+    width: 9em;
+    margin-top: 0.5em;
+    border-radius: 0px;
+    background-color: transparent;
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+.statuses-arrow-container {
+    margin-left: 5em;
+    margin-top: 1em;
+    height: 100%;
+    width: 87%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.45s cubic-bezier(0, 0.11, 0.35, 2);
+}
+.status-container:focus-within .statuses-arrow-container {
+    transform: translateY(1em);
+  
+}
+.right-icon,
+.left-icon {
+    flex-shrink: 0; 
+    margin-bottom: 2em;
+}
+.right-icon{
+    transform: rotate(180deg);
+}
+
+.statuses-arrow-container img.arrow-icon { 
+    margin: 0;
     height: 1.7em;
     width: 1.7em;
     opacity: 0.2;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-img:hover {
+.statuses-arrow-container img.arrow-icon:hover {
     opacity: 0.8;
-    transform: scale(1.1); 
-}
-.right-icon{
-    rotate: 180deg;
-    margin-right: 1.5em;
+    transform: scale(1.1);
 }
 
-.statuses{
-    width: 75vw;
+.statuses {
+    overflow: hidden;
+    width: 92%;
     height: 100%;
     display: flex;
+    flex-shrink: 0;
+    position: relative;
+}
 
+.statuses-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    width: 3.4em;
+    margin-left: 3px;
+    flex-shrink: 0;
+    position: relative;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease, z-index 0.3s ease;
 }
-.statuses-container{
+
+.status-cicle {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 4em;
-    width: 4em;
-    background-color: blueviolet;
+    height: 3.2em;
+    width: 3.2em;
     border-radius: 50%;
-    margin-top: -0.8em;
-    margin-left: 1em;
-  
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background: linear-gradient(135deg, #ff9a76, #ff6f61, #ffb347, #ffc87c);
 }
-.status-circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  background-color: aqua;
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;
+
+.status-cicle img {
+    width: 96%;
+    height: 96%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.status-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.5rem;
+    color: aliceblue;
+    text-align: center;
+    margin-top: 0.2em;
+    max-width: 5.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.statuses-container:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.statuses:has(.statuses-container:hover) .statuses-container:not(:hover) {
+    transform: scale(0.9);
+    opacity: 0.7;
+    filter: brightness(0.7);
+    pointer-events: none;
 }
