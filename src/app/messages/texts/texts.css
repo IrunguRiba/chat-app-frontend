@@ -10,7 +10,7 @@
     align-items: center;
     height: 10%;
     width: 100%;
-    padding: 0.5em 1.7em;
+    padding: 0.8em 1.7em;
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 .receiver-details-wrapper{
@@ -75,7 +75,7 @@
     border-radius: 50%;
     transition: 0.5s ease-in-out;
     background-color: transparent;
-   margin-right: 3em;
+   margin-right: 4.5em;
     color: #fff;
     font-size: 1em;
 }
@@ -111,7 +111,7 @@
     font-family: 'Montserrat', sans-serif;
     box-shadow: none;
     width: 9em;
-    margin-top: 0.5em;
+    margin-top: 0em;
     border-radius: 0px;
     background-color: transparent;
     transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
@@ -140,10 +140,14 @@
     flex: 1;
     border: none;
     outline: none;
+    resize: none;              
+    overflow-y: auto;
     font-size: 0.7em;
     font-family: 'Montserrat', sans-serif;
-    padding: 0 10px;
+    padding: 6px 10px;
     background: transparent;
+    color: #fff;
+    overflow: hidden;
 }
 .icon-btn,
 .send-btn {
@@ -168,21 +172,22 @@
 }
 
 .send-btn {
-    font-size: 1.1em;
-    color: white;
-    background-color: #b86c16;
-    width: 2.2em;
-    height: 2em;
     border-radius: 50%;
     margin-left: 10px;
     transition: 0.2s ease;
+
+}
+#send-btn-icon{
+    width: 2.2em;
+    height: 2.2em;
+    opacity: 0.5;
+    transition: rotate 0.5s ease, opacity 0.2s ease;
 }
 
-.send-btn:hover {
-    background-color: #1d1f1e;
+#send-btn-icon:hover {
+    opacity: 1;
+    rotate: 40deg;
 }
-
-/* Chat area */
 .texts-wrapper{
     height: 80%;
     width: 100%;
@@ -220,21 +225,31 @@
     word-wrap: break-word;
 }
 .received .bubble{
-    background-color: #202c33;
-    color: #e9edef;
+    color: #ffffff;
     border-top-left-radius: 0;
 }
 .sent .bubble{
-    background-color: #005c4b;
-    color: white;
+    color: rgb(186, 185, 197);
     border-top-right-radius: 0;
 }
 
 .time{
     display: block;
-    font-size: 0.6em;
+    font-size: 0.7em;
     font-family: 'Montserrat', sans-serif;
     margin-top: 4px;
     opacity: 0.6;
     text-align: right;
+    color: rgb(255, 255, 255);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #353434 inset !important;
+    -webkit-text-fill-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s;
 }

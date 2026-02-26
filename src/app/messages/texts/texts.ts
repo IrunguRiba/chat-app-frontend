@@ -17,4 +17,5 @@ export class Texts {
   img1='img1.webp';
   searchText: string = '';
   addfile='camera.png'
+  sendbtn='send.png'
 }

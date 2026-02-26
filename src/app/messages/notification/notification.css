@@ -71,7 +71,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.1em;
     color: aliceblue;
     font-size: 0.1rem;
@@ -87,12 +87,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: black;
+    color: rgb(211, 206, 206);
   }
   
   .message {
     font-size: 0.65rem;
-    color: #ddd;
+    color: #ffffff;
     margin: 0;
     max-width: 90%;      
     white-space: nowrap;
@@ -109,12 +109,13 @@
   
   .date {
     font-size: 0.6rem;
-    color: #aaa;
+    color: #ffffff;
     margin: 0;
   }
   
   #day {
     margin-left: 0.1em;
+    letter-spacing: 0.1em;
   }
   
   .message-status {
