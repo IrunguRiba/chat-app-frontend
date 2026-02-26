@@ -1,0 +1,240 @@
+.texts-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.head-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    padding: 0.5em 1.7em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.receiver-details-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 0.3em; 
+    height: 100%;
+}
+.receiver-image-container{
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    background-color: rgb(17, 129, 92);
+    flex-shrink: 0;
+}
+
+.receiver-details-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    height: 100%;
+    
+}
+.receiver-image-container{
+    height: 1.7em;
+    width: 1.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgb(212, 23, 111);
+}
+.receiver-name{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.3em;
+    color: aliceblue;
+    font-size: 0.6rem;
+    font-weight: lighter;
+    margin: 0.7em;
+}
+
+.search-messages-wrapper{
+    height: 100%;
+}
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5em;
+}
+#receiver-image{
+    height: 90%;
+    width: 90%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.input {
+    border-style: none;
+    height: 1em;
+    width: 0em;
+    outline: none;
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+    background-color: transparent;
+   margin-right: 3em;
+    color: #fff;
+    font-size: 1em;
+}
+
+.input::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5em;
+    color: aliceblue;
+    font-size: 0.7rem;
+    font-weight: lighter;
+    opacity: 0.5;
+
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+    width: 5em;
+    height: 1em;
+    outline: none;
+    border-style: none;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: 0.2s linear;
+}
+
+.icon:focus ~ .input,
+.input:focus {
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: none;
+    width: 9em;
+    margin-top: 0.5em;
+    border-radius: 0px;
+    background-color: transparent;
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+.text-input-wrapper {
+    height: 10%;
+    width: 50%;            
+    align-self: center;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6em 1em;
+}
+
+.text-area-container {
+    width: 100%;
+    height: 41px;
+    background-color: #353434;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+#texts-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 0.7em;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 10px;
+    background: transparent;
+}
+.icon-btn,
+.send-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: 0.2s ease;
+}
+
+.icon-btn img:hover {
+    opacity: 1;
+}
+
+.send-btn {
+    font-size: 1.1em;
+    color: white;
+    background-color: #b86c16;
+    width: 2.2em;
+    height: 2em;
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: 0.2s ease;
+}
+
+.send-btn:hover {
+    background-color: #1d1f1e;
+}
+
+/* Chat area */
+.texts-wrapper{
+    height: 80%;
+    width: 100%;
+    padding: 2em;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+}
+.messages{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.7em;
+}
+
+.message{
+    display: flex;
+    width: 100%;
+}
+.message.received{
+    justify-content: flex-start;
+}
+.message.sent{
+    justify-content: flex-end;
+}
+.bubble{
+    max-width: 75%;
+    padding: 0.2em 0.8em;
+    border-radius: 1em;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.4;
+    position: relative;
+    display: inline-block;
+    word-wrap: break-word;
+}
+.received .bubble{
+    background-color: #202c33;
+    color: #e9edef;
+    border-top-left-radius: 0;
+}
+.sent .bubble{
+    background-color: #005c4b;
+    color: white;
+    border-top-right-radius: 0;
+}
+
+.time{
+    display: block;
+    font-size: 0.6em;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 4px;
+    opacity: 0.6;
+    text-align: right;
+}

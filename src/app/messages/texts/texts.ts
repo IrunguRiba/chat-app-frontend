@@ -14,4 +14,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./texts.css'], 
 })
 export class Texts {
+  img1='img1.webp';
+  searchText: string = '';
+  addfile='camera.png'
 }

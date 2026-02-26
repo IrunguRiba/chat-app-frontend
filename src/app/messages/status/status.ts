@@ -14,6 +14,7 @@ export class Status {
   img2 = 'img2.jpg';
   arrow = 'arrow.png';
   search = 'search.png';
+
   searchText: string = '';
   statuses = 50;
   statusesArray = Array.from({ length: this.statuses });
