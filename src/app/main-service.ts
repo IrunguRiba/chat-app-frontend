@@ -12,14 +12,14 @@ export class MainService {
   // http://localhost:4000/api/v1/contact/login
   //https://chat-pp-backend.onrender.com
 
- private  url='https://chat-pp-backend.onrender.com/api/v1/contact'
- private localUrl='http://localhost:4000/api/v1/contact'
+ private  url='https://chat-pp-backend.onrender.com/api/auth'
+ private localUrl='http://localhost:4000/api/auth'
 
   constructor( private http:HttpClient  ){}
 
   register(user:User): Observable<User>{
     console.log('register user:', user);
-    return this.http.post<User>(`${this.url}/new`, user).pipe(
+    return this.http.post<User>(`${this.localUrl}/signup`, user).pipe(
       catchError((err:any)=>{
         console.error("Something went wrong during registration", err)
         return throwError(() => err);
@@ -27,11 +27,11 @@ export class MainService {
     )
   } 
 
-  login (name:string, number:string): Observable<User>{
-    console.log(`Logging user ${name}, ${number}`)
-    return this.http.post<User> (`${this.url}/login`, {
-      name,
-      number
+  login (username:string, phonenumber:string): Observable<User>{
+    console.log(`Logging user ${username}, ${phonenumber}`)
+    return this.http.post<User> (`${this.localUrl}/signin`, {
+      username,
+      phonenumber
     }).pipe(
       catchError((err:any)=>{
         console.error("Something went wrong during registration", err)

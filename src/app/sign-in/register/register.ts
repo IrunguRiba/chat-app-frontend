@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators ,  AbstractControl} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { Router } from '@angular/router';
 import {MainService} from '../../main-service'
@@ -41,13 +41,27 @@ export class Register {
   constructor(private fb: FormBuilder, private router:Router, private mainService:MainService) {
 
     this.contactForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]], 
-      number: ['',[ Validators.required,  Validators.pattern('^[0-9]{10}$'),],],
+      username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(54)]],
+      contact: ['', [Validators.required, this.emailOrPhoneValidator]]
     });
   }
 
+  emailOrPhoneValidator(control: AbstractControl) {
+    const value = (control.value || '').trim();  
+    if (!value) return { required: true };
+  
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^[0-9]{10}$/;
+  
+    if (emailPattern.test(value) || phonePattern.test(value)) {
+      return null; 
+    }
+  
+    return { invalidContact: true };
+  }
   
   onSubmit(): void {
+    this.contactForm.markAllAsTouched();
     if (this.contactForm.valid) {
       console.log('Form Submitted:', this.contactForm.value);
 

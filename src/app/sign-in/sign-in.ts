@@ -22,8 +22,8 @@ export class SignIn implements OnInit {
   logo = '/logo.png';
   showLine = true;
 
-  name = '';
-  number = '';
+  username = '';
+  phonenumber = '';
   errorMessage = '';
 
   constructor(
@@ -45,7 +45,7 @@ export class SignIn implements OnInit {
   bubbles = Array(100);
 
   onLogin() {
-    this.mainService.login(this.name, this.number).subscribe({
+    this.mainService.login(this.username, this.phonenumber).subscribe({
       next: (data: any) => {
         console.log('Login success', data);
         localStorage.setItem('token', data.Token);

@@ -10,9 +10,6 @@ import { Status } from './status/status';
 import { Notification } from './notification/notification';
 import { Group } from './group/group';
 
-
-
-
 @Component({
   selector: 'app-messages',
   imports: [CommonModule, Header, Status, Notification, Texts, Group],
