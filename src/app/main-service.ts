@@ -18,7 +18,7 @@ export class MainService {
 
   register(user: User): Observable<User> {
     console.log('register user:', user);
-    return this.http.post<User>(`${this.localUrl}/signup`, user).pipe(
+    return this.http.post<User>(`${this.url}/signup`, user).pipe(
       catchError((err: any) => {
         console.error('Something went wrong during registration', err);
         return throwError(() => err);
@@ -41,7 +41,7 @@ export class MainService {
 
     console.log('Login payload:', payload);
 
-    return this.http.post<User>(`${this.localUrl}/signin`, payload).pipe(
+    return this.http.post<User>(`${this.url}/signin`, payload).pipe(
       catchError((err: any) => {
         console.error('Login failed', err);
         return throwError(() => err);
