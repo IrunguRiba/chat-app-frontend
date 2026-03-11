@@ -15,7 +15,8 @@ templateUrl: './register.html',
   styleUrl: './register.css',
 })
 export class Register {
-
+  isSubmitting = false;
+  redirecting=false
   backgroundVideo='vid1.mp4'
 
   @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
@@ -60,37 +61,66 @@ export class Register {
     return { invalidContact: true };
   }
   
-  onSubmit(): void {
-    this.contactForm.markAllAsTouched();
-    if (this.contactForm.valid) {
-      console.log('Form Submitted:', this.contactForm.value);
+  onSubmit(event: Event): void {
+  this.contactForm.markAllAsTouched();
+  event.preventDefault();
 
-      const user=this.contactForm.value
-      console.log(`user ${user}`)
+  if (!this.contactForm.valid || this.isSubmitting) {
+    return;
+  }
 
-     this.mainService.register(user).subscribe({
+  this.isSubmitting = true;
 
-      next:(data:any)=>{
-        console.log('Registration successful', data);
-        console.log('Navigating to sign in')
+  if (this.contactForm.valid) {
 
-      },
-      error: (error:any)=>{
-        console.error('Registration failed', error);
-      },
-      complete: ()=>{console.log('Registration Complete')}
-     })
-    } else {
-      console.log('Form is invalid');
+    const formValue = this.contactForm.value;
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^[0-9]{10}$/;
+
+    let payload: any = {
+      username: formValue.username
+    };
+
+    if (emailPattern.test(formValue.contact)) {
+      payload.email = formValue.contact;
+    } 
+    else if (phonePattern.test(formValue.contact)) {
+      payload.phonenumber = formValue.contact;
     }
 
-   
+    console.log('Payload sent to backend:', payload);
+
+    this.mainService.register(payload).subscribe({
+      next: (data: any) => {
+        console.log('Registration successful', data);
+       
+        if(data.newuser._id){
+        
+            this.router.navigate(['/sign-in']);
+        }
+        
+      },
+      error: (error: any) => {
+        console.error('Registration failed', error);
+        this.isSubmitting = false;
+
+      },
+      complete: () => {
+        console.log('Registration Complete');
+        this.isSubmitting = false;
+      }
+    });
+
+  } else {
+    console.log('Form is invalid');
   }
+}
 
   privacyPage(){
 
   }
   signInPage(){
-    this.router.navigate(['/sign-in']);
+    // this.router.navigate(['/sign-in']);
   }
 }

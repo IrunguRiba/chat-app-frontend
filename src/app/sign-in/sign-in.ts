@@ -24,6 +24,8 @@ export class SignIn implements OnInit {
 
   username = '';
   phonenumber = '';
+  identifier = '';
+  email = '';
   errorMessage = '';
 
   constructor(
@@ -45,12 +47,19 @@ export class SignIn implements OnInit {
   bubbles = Array(100);
 
   onLogin() {
-    this.mainService.login(this.username, this.phonenumber).subscribe({
+    let email: string | null = null;
+    let phone: string | null = null;
+    if (/^\d+$/.test(this.identifier.trim())) {
+      phone = this.identifier.trim();
+    } else {
+      email = this.identifier.trim();
+    }
+
+    this.mainService.login(this.username.trim(), email, phone).subscribe({
       next: (data: any) => {
-        console.log('Login success', data);
+        console.log('Login successful:', data);
         localStorage.setItem('token', data.Token);
-        console.log('token stored:', data.Token);
-        console.log('navigating to messages')
+
         this.router.navigate(['/messages']);
       },
       error: (error: any) => {
@@ -63,7 +72,7 @@ export class SignIn implements OnInit {
           icon: 'error',
           background:
             'linear-gradient(90deg, rgba(52,38,10,0) 0%, rgba(129,98,25,0.8) 60%, rgba(52,38,10,0) 100%)',
-            color: '#000000',
+          color: '#000000',
           confirmButtonColor: '#ff3b3b',
           iconColor: '#ff4d4d',
         });

@@ -1,4 +1,5 @@
 export interface User {
     username:string,
-    phonenumber:string
+    email?:string,
+    phonenumber?:string
 }

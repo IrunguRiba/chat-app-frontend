@@ -18,7 +18,7 @@ Authorization: `Bearer ${userToken}`
     })
     return next(newRequest);
   } else{
-    router.navigate(['/sign-in']);
+    // router.navigate(['/sign-in']);
     return next(req)
   }
 };

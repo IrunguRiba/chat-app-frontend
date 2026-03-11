@@ -1,8 +1,7 @@
 <div class="wrapper" [class.active]="signUpModalOpen">
-
   <div class="video-container">
     <video #bgVideo class="background-clip" autoplay loop muted playsinline>
-      <source [attr.src]="backgroundVideo" type="video/mp4">
+      <source [attr.src]="backgroundVideo" type="video/mp4" />
       Your browser does not support HTML5 video.
     </video>
   </div>
@@ -27,35 +26,88 @@
             <img [src]="closeButton" class="close-button-icon" (click)="signUpModalOpen = false" />
           </div>
 
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit($event)" class="contact-form">
             <div class="form-group">
               <label for="username" class="form-label">Username</label>
-              <input id="name" formControlName="username" type="text" class="form-input" [class.form-input-error]="contactForm.get('username')?.invalid && contactForm.get('username')?.touched" placeholder="Enter name"/>
-              <div class="error-message" *ngIf="contactForm.get('username')?.invalid && contactForm.get('username')?.touched">
-                <small *ngIf="contactForm.get('username')?.hasError('required')">Name is required</small>
-                <small *ngIf="contactForm.get('username')?.hasError('minlength')">Name should be at least 3 characters</small>
+              <input
+                id="name"
+                formControlName="username"
+                type="text"
+                class="form-input"
+                [class.form-input-error]="
+                  contactForm.get('username')?.invalid && contactForm.get('username')?.touched
+                "
+                placeholder="Enter name"
+              />
+              <div
+                class="error-message"
+                *ngIf="contactForm.get('username')?.invalid && contactForm.get('username')?.touched"
+              >
+                <small *ngIf="contactForm.get('username')?.hasError('required')"
+                  >Name is required</small
+                >
+                <small *ngIf="contactForm.get('username')?.hasError('minlength')"
+                  >Name should be at least 3 characters</small
+                >
               </div>
             </div>
 
             <div class="form-group">
               <label for="contact" class="form-label">Email or Phone Number</label>
-              <input  id="contact" formControlName="contact" type="text" class="form-input" [class.form-input-error]="contactForm.get('contact')?.invalid && contactForm.get('contact')?.touched" placeholder="Email or phone number"/>
-             
-              <div class="error-message" *ngIf="contactForm.get('contact')?.touched && contactForm.get('contact')?.hasError('required')">
+              <input
+                id="contact"
+                formControlName="contact"
+                type="text"
+                class="form-input"
+                [class.form-input-error]="
+                  contactForm.get('contact')?.invalid && contactForm.get('contact')?.touched
+                "
+                placeholder="Email or phone number"
+              />
+
+              <div
+                class="error-message"
+                *ngIf="
+                  contactForm.get('contact')?.touched &&
+                  contactForm.get('contact')?.hasError('required')
+                "
+              >
                 <small>Email or phone number is required</small>
               </div>
 
-              <div class="error-message" *ngIf="contactForm.get('contact')?.touched && contactForm.get('contact')?.hasError('invalidContact')">
+              <div
+                class="error-message"
+                *ngIf="
+                  contactForm.get('contact')?.touched &&
+                  contactForm.get('contact')?.hasError('invalidContact')
+                "
+              >
                 <small>Enter a valid email or 10-digit phone number</small>
               </div>
-
             </div>
-            <button type="submit" class="submit-btn" [disabled]="contactForm.invalid" [class.submit-btn-disabled]="contactForm.invalid"> Submit</button>
+            <button
+              type="submit"
+              class="submit-btn"
+              [disabled]="contactForm.invalid || isSubmitting"
+              [class.submit-btn-disabled]="contactForm.invalid"
+            >
+              <span *ngIf="!isSubmitting && !redirecting">Submit</span>
+
+              <span *ngIf="isSubmitting" class="btn-loading">
+                <span class="spinner"></span>
+                Submitting...
+              </span>
+
+              <span *ngIf="redirecting" class="btn-loading">
+                <span class="spinner"></span>
+                Redirecting...
+              </span>
+            </button>
           </form>
 
           <div class="footer-links">
             <p><a class="privacy-link" (click)="privacyPage()">Privacy Policy</a></p>
-                 <button class="neu-button" (click)="signInPage()">Sign in</button>
+            <button type="button" class="neu-button" (click)="signInPage()">Sign in</button>
           </div>
         </div>
       </div>
