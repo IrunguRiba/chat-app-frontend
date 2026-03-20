@@ -121,6 +121,6 @@ export class Register {
 
   }
   signInPage(){
-    // this.router.navigate(['/sign-in']);
+    this.router.navigate(['/sign-in']);
   }
 }
