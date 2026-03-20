@@ -11,7 +11,7 @@ export class MainService {
   // http://localhost:4000/api/v1/contact/login
   //https://chat-pp-backend.onrender.com
 
-  private url = 'https://chat-pp-backend.onrender.com/api/auth';
+  private url = 'https://messaging-app-backend-v1.onrender.com/api/auth';
   private localUrl = 'http://localhost:4000/api/auth';
 
   constructor(private http: HttpClient) {}
